@@ -21,4 +21,4 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock /app/
 
 COPY . /app
-CMD ["discord-utils-bot"]
+CMD ["poetry", "run", "python", "main.py"]
