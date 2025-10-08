@@ -80,4 +80,5 @@ async def bump(ctx):
     await response_message.edit(content=response_message_content)
 
 
-bot.run(bot_token)
+def main():
+    bot.run(bot_token)
