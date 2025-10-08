@@ -36,13 +36,11 @@ async def on_message(message):
         # remove usurped king
         async for member in guild.fetch_members(limit=None):
             if king_role in member.roles:
-                print(f"Removing king role from {member.display_name}")
                 await member.remove_roles(king_role)
 
         # hail to the new king!
 
         member_bumper = await guild.fetch_member(user_bumper.id)
-        print(f"Adding king role to {member_bumper.display_name}")
         await member_bumper.add_roles(king_role)
         announcement_channel = await bot.fetch_channel(bump_channel_id)
 
