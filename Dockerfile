@@ -1,4 +1,4 @@
-FROM python:3.14-slim-bookworm
+FROM python:3.13-slim-bookworm
 
 # Python
 ENV PYTHONFAULTHANDLER=1 \
@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 RUN curl -sSL https://install.python-poetry.org | python3 -
 WORKDIR /app
 COPY pyproject.toml poetry.lock /app/
-
 COPY . /app
-CMD ["poetry", "run", "python", "main.py"]
+RUN poetry install
+
+CMD ["discord-utils-bot"]
